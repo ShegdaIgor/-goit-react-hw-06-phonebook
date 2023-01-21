@@ -1,6 +1,6 @@
 import { ContactsForm } from './ContactsForm/ContactsForm';
 import { ContactsList } from './ContactsList/ContactsList';
-import { FilterContact } from './FilterContact/FilterContact';
+import { Filter } from './FilterContact/FilterContact';
 import css from './App.module.css';
 import { nanoid } from 'nanoid';
 import { useEffect, useState } from 'react';
@@ -57,10 +57,7 @@ export const App = () => {
       <h1>Phonebook</h1>
       <ContactsForm handleSubmit={handleSubmit} />
       <h2>Contacts</h2>
-      <FilterContact
-        filter={filter}
-        handleFilterContact={handleFilterContact}
-      />
+      <Filter filter={filter} handleFilterContact={handleFilterContact} />
       <ContactsList
         showFilteredContacts={showFilteredContacts()}
         handleDeleteContact={handleDeleteContact}

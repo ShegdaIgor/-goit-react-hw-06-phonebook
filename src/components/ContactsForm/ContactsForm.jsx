@@ -63,3 +63,59 @@ export const ContactsForm = ({ handleSubmit }) => {
 ContactsForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
 };
+
+// import { createSlice } from '@reduxjs/toolkit';
+
+// // Создание редюсера
+// export const contactsFormSlice = createSlice({
+//   name: 'contactsForm',
+//   initialState: {
+//     name: '',
+//     number: '',
+//   },
+//   reducers: {
+//     // Создание экшена для управления состоянием
+//     handleContactData: (state, action) => {
+//       state.name = action.payload.name;
+//       state.number = action.payload.number;
+//     },
+//   },
+// });
+
+// // Экспортирование экшенов и редюсера
+// export const { handleContactData } = contactsFormSlice.actions;
+// export default contactsFormSlice.reducer;
+
+// // Функция для отправки данных
+// const handleSubmit = data => {
+//   dispatch(handleContactData(data));
+// };
+
+// // Функция для изменения состояния
+// const handleContactData = e => {
+//   const { name, value } = e.target;
+//   dispatch(handleContactData({ name, value }));
+// };
+
+// // Компонент
+// const ContactsForm = () => {
+//   const { name, number } = useSelector(state => state.contactsForm);
+
+//   return (
+//     <form onSubmit={onSubmitForm}>
+//       <input
+//         type="text"
+//         name="name"
+//         value={name}
+//         onChange={handleContactData}
+//       />
+//       <input
+//         type="text"
+//         name="number"
+//         value={number}
+//         onChange={handleContactData}
+//       />
+//       <button type="submit">Add contact</button>
+//     </form>
+//   );
+// };
