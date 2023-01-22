@@ -3,7 +3,7 @@ import React from 'react';
 import css from './ContactsList.module.css';
 import { DeleteBtn } from 'components/DeleteBtn/DeleteBtn';
 import { useDispatch, useSelector } from 'react-redux';
-import { getFilterContacts } from 'redux/selectors';
+import { getFilterContacts, showFilteredContacts } from 'redux/selectors';
 import { deleteContact } from 'redux/contactsSlice';
 
 // export const ContactsList = ({ showFilteredContacts, handleDeleteContact }) => {
@@ -40,12 +40,12 @@ import { deleteContact } from 'redux/contactsSlice';
 // };
 
 export const ContactsList = () => {
-  const contacts = useSelector(state => state.contacts.contacts);
   const filter = useSelector(getFilterContacts);
   const dispatch = useDispatch();
+  const contacts = useSelector(showFilteredContacts);
 
-  const showFilteredContacts = contacts.filter(contact =>
-    contact.name.includes(filter)
+  const filteredContacts = contacts.filter(contact =>
+    contact.name.toLowerCase().includes(filter.toLowerCase())
   );
 
   const handleDeleteContact = id => {
@@ -54,7 +54,7 @@ export const ContactsList = () => {
 
   return (
     <ul className={css.contactList}>
-      {showFilteredContacts.map(contact => (
+      {filteredContacts.map(contact => (
         <li key={contact.id} className={css.contactItem}>
           <p className={css.contactInfoWrapper}>
             <span className={css.contactName}>{contact.name}:</span>&nbsp;

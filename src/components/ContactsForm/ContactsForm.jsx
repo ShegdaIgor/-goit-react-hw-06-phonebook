@@ -84,7 +84,11 @@ export const ContactsForm = () => {
   const onSubmitForm = e => {
     e.preventDefault();
     // handleSubmit(formData);
-    if (contacts.find(contact => contact.name === formData.name)) {
+    if (
+      contacts.find(
+        contact => contact.name.toLowerCase() === formData.name.toLowerCase()
+      )
+    ) {
       alert(`${formData.name} is already in contacts`);
     } else {
       dispatch(addToContact(formData));
