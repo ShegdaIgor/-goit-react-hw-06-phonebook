@@ -1,7 +1,6 @@
 import { createSlice, nanoid } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-// import { contactReducer } from './contactsSlice';
 
 const initialStateForContacts = {
   contacts: [],
@@ -20,7 +19,6 @@ const contactsSlice = createSlice({
           payload: {
             ...contact,
             id: nanoid(),
-            completed: false,
           },
         };
       },
